@@ -20,7 +20,7 @@
           <% @productos.each do |producto| %>
           <tr>
             <td><%= producto.name %></td>
-            <td><%= producto.price%></td>
+            <td><%=  number_to_currency(producto.price, precision: 2)%></td>
             <td><%= producto.categories.pluck(:name).join(",") %></td>
             <td><%= link_to "<span class='glyphicon glyphicon-trash'><span>".html_safe, producto, method: :delete, data: { confirm: '¿Seguro?' } %></td>
             <td><%= link_to "<span class='glyphicon glyphicon-pencil'><span>".html_safe,  edit_product_path(producto) %></td>
